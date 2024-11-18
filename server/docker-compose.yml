@@ -44,7 +44,7 @@ services:
     container_name: nginx-server
     restart: unless-stopped
     ports:
-      - 5002:5002
+      - 5004:5004
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
