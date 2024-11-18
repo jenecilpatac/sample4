@@ -18,6 +18,9 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
+# Install the dependencies
+RUN composer install
+
 WORKDIR /var/www
 
 USER $user
