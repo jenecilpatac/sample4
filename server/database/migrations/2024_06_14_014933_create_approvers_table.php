@@ -11,18 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('approvers', function (Blueprint $table) {
+        Schema::create('custom_approvers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('position');
-            $table->string('email', 191)->unique();
-            $table->string('role');
-            $table->string('branch_code');
-            $table->longText('signature')->nullable();
+            $table->unsignedBigInteger('user_id'); // Make sure this column is defined
+            $table->string('name');
+          
             $table->timestamps();
-
+        
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('approvers');
+        Schema::dropIfExists('custom_approvers');
     }
 };

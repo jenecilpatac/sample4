@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('custom_approvers', function (Blueprint $table) {
-            $table->id(); // This creates an unsignedBigInteger primary key
-            $table->string('name');
-            $table->unsignedBigInteger('user_id');
+        Schema::table('request_forms', function (Blueprint $table) {
             $table->json('noted_by');
             $table->json('approved_by');
-            $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('request_forms', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -10,10 +10,8 @@ class CreateBranchesTable extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->string('branch_code')->unique();
-            $table->string('branch_name');
+            $table->string('branch_code', 191)->unique();
             $table->string('branch');
-            $table->string('acronym');
             $table->timestamps();
         });
     }

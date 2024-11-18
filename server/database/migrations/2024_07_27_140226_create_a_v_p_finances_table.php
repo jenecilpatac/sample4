@@ -11,19 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('approvers', function (Blueprint $table) {
+        Schema::create('a_v_p_finances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('position');
-            $table->string('email', 191)->unique();
-            $table->string('role');
-            $table->string('branch_code');
-            $table->longText('signature')->nullable();
+            $table->json('staff_id');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('approvers');
+        Schema::dropIfExists('a_v_p_finances');
     }
 };
