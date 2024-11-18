@@ -1,8 +1,5 @@
 FROM php:8.2-fpm
 
-ARG user
-ARG uid
-
 # Install dependencies
 RUN apt update && apt install -y \
     git \
@@ -28,10 +25,3 @@ COPY . .
 # Install project dependencies using Composer
 RUN composer install
 
-# Add the user and set up the home directory
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
-
-# Set the working directory and switch user
-USER $user
