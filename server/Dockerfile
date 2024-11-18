@@ -29,4 +29,4 @@ RUN composer install --no-interaction --prefer-dist
 RUN chown -R www-data:www-data /var/www
 
 # Expose the port the app will run on
-EXPOSE 9000
+EXPOSE 5005
