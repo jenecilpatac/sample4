@@ -19,5 +19,3 @@ WORKDIR /var/www
 # Copy the current directory contents into the container at /var/www
 COPY . .
 
-# Install project dependencies using Composer
-RUN composer install
