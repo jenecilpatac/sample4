@@ -1,32 +1,29 @@
-# Use an official Node runtime as a parent image
-FROM node:16-alpine AS build
+FROM php:8.2-fpm
 
-# Set the working directory
-WORKDIR /app
+# Install dependencies
+RUN apt update && apt install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    unzip  # Required for Composer installation
+RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-# Copy the package.json and package-lock.json to the working directory
-COPY ./package*.json ./
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
-# Install the dependencies
-RUN npm install
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copy the remaining application files to the working directory
+# Set the working directory where the app will live
+WORKDIR /var/www
+
+# Copy the current directory contents into the container at /var/www
 COPY . .
 
-# Build the application
-RUN npm run build
+# Copy the .env file into the container
+COPY .env .env
 
-# Use a lightweight server to serve the static files
-FROM nginx:alpine
-
-# Copy the build files to the NGINX server
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Copy the custom NGINX configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 5004
-
-# Start NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# Install project dependencies using Composer
+RUN composer install
