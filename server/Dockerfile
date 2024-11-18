@@ -22,6 +22,8 @@ WORKDIR /var/www
 # Copy the current directory contents into the container at /var/www
 COPY . .
 
+# Copy the .env file into the container
+COPY .env .env
+
 # Install project dependencies using Composer
 RUN composer install
-
