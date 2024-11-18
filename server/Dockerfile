@@ -13,9 +13,7 @@ RUN apt clean && rm -rf /var/lib/apt/lists/*
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set the working directory where the app will live
 WORKDIR /var/www
-
-# Copy the current directory contents into the container at /var/www
-COPY . .
 
