@@ -22,4 +22,7 @@ RUN mkdir -p /home/$user/.composer && \
 
 WORKDIR /var/www
 
+# Install Composer dependencies (this step will generate the vendor directory)
+RUN composer install --no-interaction --prefer-dist
+
 USER $user
