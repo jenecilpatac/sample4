@@ -12,7 +12,6 @@ services:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
-      - ./default.conf:/etc/nginx/conf.d/default.conf # Mount the custom NGINX config
     networks:
       - laravel-app
     ports:
@@ -37,7 +36,6 @@ services:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
-      - ./default.conf:/etc/nginx/conf.d/default.conf # Mount the custom NGINX config
     networks:
       - laravel-app
     ports:
@@ -62,7 +60,6 @@ services:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
-      - ./default.conf:/etc/nginx/conf.d/default.conf # Mount the custom NGINX config
     networks:
       - laravel-app
     ports:
@@ -119,7 +116,7 @@ services:
       - 5005:5005
     volumes:
       - ./:/var/www
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./docker-compose/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - laravel-app
 
