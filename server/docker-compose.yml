@@ -9,6 +9,8 @@ services:
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
+      - ./storage:/var/www/storage
+      - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
     networks:
       - laravel-app
