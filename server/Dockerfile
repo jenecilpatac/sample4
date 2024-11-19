@@ -23,7 +23,6 @@ COPY . /var/www
 # Set file permissions (optional)
 RUN chown -R www-data:www-data /var/www
 
-# Expose PHP-FPM port
 EXPOSE 5005
 
 CMD ["php-fpm"]
