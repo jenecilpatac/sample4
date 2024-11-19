@@ -20,9 +20,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy your Laravel project into the container
 COPY . /var/www
 
-# Set file permissions (optional)
-RUN chown -R smct:smct /var/www
-
 EXPOSE 5005
 
 CMD ["php-fpm"]
