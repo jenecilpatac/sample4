@@ -389,8 +389,8 @@ class ComposerStaticInit55c22be9c1f512ba91e2a3d7d15c66e7
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -588,7 +588,22 @@ class ComposerStaticInit55c22be9c1f512ba91e2a3d7d15c66e7
     public static $classMap = array (
         'App\\Events\\MyEvent' => __DIR__ . '/../..' . '/app/Events/MyEvent.php',
         'App\\Events\\NotificationEvent' => __DIR__ . '/../..' . '/app/Events/NotificationEvent.php',
-        'App\\Http\\Controllers\\Api\\PositionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PositionController.php',
+        'App\\Http\\Controllers\\API\\ApprovalProcessController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/ApprovalProcessController.php',
+        'App\\Http\\Controllers\\API\\ApproverController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/ApproverController.php',
+        'App\\Http\\Controllers\\API\\AreaManagerController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/AreaManagerController.php',
+        'App\\Http\\Controllers\\API\\AttachmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/AttachmentController.php',
+        'App\\Http\\Controllers\\API\\BranchController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/BranchController.php',
+        'App\\Http\\Controllers\\API\\BranchHeadController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/BranchHeadController.php',
+        'App\\Http\\Controllers\\API\\ChangePasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/ChangePasswordController.php',
+        'App\\Http\\Controllers\\API\\CustomApproversController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/CustomApproversController.php',
+        'App\\Http\\Controllers\\API\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/ForgotPasswordController.php',
+        'App\\Http\\Controllers\\API\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/LoginController.php',
+        'App\\Http\\Controllers\\API\\NotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/NotificationController.php',
+        'App\\Http\\Controllers\\API\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/ProfileController.php',
+        'App\\Http\\Controllers\\API\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/RegisterController.php',
+        'App\\Http\\Controllers\\API\\RequestFormController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/RequestFormController.php',
+        'App\\Http\\Controllers\\API\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/ResetPasswordController.php',
+        'App\\Http\\Controllers\\API\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/UserController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Middleware\\RoleMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/RoleMiddleware.php',
         'App\\Mail\\ResetPasswordMail' => __DIR__ . '/../..' . '/app/Mail/ResetPasswordMail.php',
