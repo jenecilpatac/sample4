@@ -45,6 +45,20 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db  # Name of the MySQL container
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}  # Use the same password as in the db container
+    ports:
+      - "8080:80"  # Expose phpMyAdmin on port 8080
+    networks:
+      - laravel-app
+      
   nginx:
     image: nginx:alpine
     container_name: nginx-server
