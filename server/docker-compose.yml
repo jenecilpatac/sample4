@@ -12,7 +12,7 @@ services:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
-       - ./docker-compose/nginx/default.conf:/etc/nginx/conf.d/default.conf
+       - ./docker-compose/nginx/default.conf
     networks:
       - laravel-app
     ports:
@@ -37,7 +37,7 @@ services:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
-      - ./docker-compose/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker-compose/nginx/default.conf
     networks:
       - laravel-app
     ports:
@@ -62,7 +62,7 @@ services:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
-      - ./docker-compose/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker-compose/nginx/default.conf
     networks:
       - laravel-app
     ports:
