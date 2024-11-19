@@ -5,7 +5,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: request-form
-    container_name: laravel-server
+    container_name: app1
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -30,7 +30,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: request-form
-    container_name: laravel-server
+    container_name: app2
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -55,7 +55,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: request-form
-    container_name: laravel-server
+    container_name: app3
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
