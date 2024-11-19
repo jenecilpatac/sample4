@@ -23,6 +23,10 @@ COPY . /var/www
 # Set file permissions (optional)
 RUN chown -R www-data:www-data /var/www
 
+# Set up permissions for Laravel storage and cache directories
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
 EXPOSE 5005
 
 CMD ["php-fpm"]
