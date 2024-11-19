@@ -24,6 +24,6 @@ COPY . /var/www
 RUN chown -R www-data:www-data /var/www
 
 # Expose PHP-FPM port
-EXPOSE 9000
+EXPOSE 5005
 
 CMD ["php-fpm"]
