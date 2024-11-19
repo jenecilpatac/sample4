@@ -3,8 +3,11 @@ FROM php:8.1-fpm-alpine
 # Install system dependencies
 RUN apk --no-cache add \
     zlib-dev \
-    libpng libjpeg-turbo libwebp freetype \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    libwebp-dev \
+    freetype-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install gd \
     && docker-php-ext-install pdo pdo_mysql
 
