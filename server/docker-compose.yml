@@ -1,11 +1,11 @@
 version: "3.7"
 services:
-  app1:
+  app:
     build:
       context: ./
       dockerfile: Dockerfile
     image: request-form
-    container_name: app1
+    container_name: sample4
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -22,55 +22,6 @@ services:
       DB_USERNAME: root
       DB_PASSWORD: ${DB_PASSWORD}  # Ensure this matches your DB password
   
-  # app2:
-  #   build:
-  #     context: ./
-  #     dockerfile: Dockerfile
-  #   image: request-form
-  #   container_name: app2
-  #   restart: unless-stopped
-  #   working_dir: /var/www/
-  #   volumes:
-  #     - ./storage:/var/www/storage
-  #     - ./bootstrap/cache:/var/www/bootstrap/cache
-  #     - ./:/var/www
-  #     - ./docker-compose/nginx/default.conf
-  #   networks:
-  #     - laravel-app
-  #   ports:
-  #     - "5012:5005"
-  #   environment:
-  #     DB_CONNECTION: mysql
-  #     DB_HOST: db  # Ensure Laravel connects to the db container
-  #     DB_PORT: 3306
-  #     DB_DATABASE: backend
-  #     DB_USERNAME: root
-  #     DB_PASSWORD: ${DB_PASSWORD}  # Ensure this matches your DB 
-  
-  # app3:
-  #   build:
-  #     context: ./
-  #     dockerfile: Dockerfile
-  #   image: request-form
-  #   container_name: app3
-  #   restart: unless-stopped
-  #   working_dir: /var/www/
-  #   volumes:
-  #     - ./storage:/var/www/storage
-  #     - ./bootstrap/cache:/var/www/bootstrap/cache
-  #     - ./:/var/www
-  #     - ./docker-compose/nginx/default.conf
-  #   networks:
-  #     - laravel-app
-  #   ports:
-  #     - "5013:5005"
-  #   environment:
-  #     DB_CONNECTION: mysql
-  #     DB_HOST: db  # Ensure Laravel connects to the db container
-  #     DB_PORT: 3306
-  #     DB_DATABASE: backend
-  #     DB_USERNAME: root
-  #     DB_PASSWORD: ${DB_PASSWORD}  # Ensure this matches your DB password
   db:
     image: mysql:8.0
     container_name: mysql-server
