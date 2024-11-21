@@ -13,7 +13,7 @@ class BranchSeeder extends Seeder
     public function run(): void
     {
  
-        DB::table('branches')->insert([
+        $branches = [
             ['branch_code' => 'AKLA', 'branch_name' => 'AKLAN', 'branch' => 'Strong Moto Centrum, Inc.', 'acronym' => 'SMCT', 'created_at' => now(), 'updated_at' => now()],
             ['branch_code' => 'ALEN', 'branch_name' => 'ALLEN', 'branch' => 'Strong Moto Centrum, Inc.', 'acronym' => 'SMCT', 'created_at' => now(), 'updated_at' => now()],
             ['branch_code' => 'ANTI', 'branch_name' => 'ANTIQUE', 'branch' => 'Strong Moto Centrum, Inc.', 'acronym' => 'SMCT', 'created_at' => now(), 'updated_at' => now()],
@@ -118,7 +118,9 @@ class BranchSeeder extends Seeder
             ['branch_code' => 'SUCD', 'branch_name' => 'SUCABON', 'branch' => 'Des Appliance Plaza, Inc.', 'acronym' => 'DAP', 'created_at' => now(), 'updated_at' => now()],
             ['branch_code' => 'TUBOD', 'branch_name' => 'TUBOD', 'branch' => 'Des Appliance Plaza, Inc.', 'acronym' => 'DAP', 'created_at' => now(), 'updated_at' => now()],
             ['branch_code' => 'VITA', 'branch_name' => 'VITALI', 'branch' => 'Des Appliance Plaza, Inc.', 'acronym' => 'DAP', 'created_at' => now(), 'updated_at' => now()],
-        ]);
+        ];
+
+        DB::table('branches')->insert($branches);
 
 
     }
