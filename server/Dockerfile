@@ -8,8 +8,7 @@ RUN apk --no-cache add \
     libwebp-dev \
     freetype-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install pdo pdo_mysql
+    && docker-php-ext-install gd 
 
 # Set working directory
 WORKDIR /var/www
