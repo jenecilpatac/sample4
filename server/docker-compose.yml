@@ -37,7 +37,7 @@ services:
     networks:
       - laravel-app
     ports:
-      - "3306:3306"  # Expose MySQL to the host machine (optional)
+      - "3307:3306"  # Expose MySQL to the host machine (optional)
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
