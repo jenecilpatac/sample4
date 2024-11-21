@@ -22,19 +22,33 @@ services:
       DB_DATABASE: backend
       DB_USERNAME: smct
       DB_PASSWORD: smct  # Ensure this matches your DB password
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-server
+    restart: unless-stopped
     environment:
-      PMA_HOST: mysql  # MySQL container name or IP address
-      PMA_PORT: 3306
+      MYSQL_DATABASE: backend
+      MYSQL_USER: smct
+      MYSQL_PASSWORD: smct
       MYSQL_ROOT_PASSWORD: smct
-    ports:
-      - "8080:80"  # Access phpMyAdmin via localhost:8080
+    volumes:
+      - mysql_data:/var/lib/mysql
     networks:
       - laravel-app
-  
+      
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-server
+    restart: unless-stopped
+    ports:
+      - 5004:80
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: smct
+      PMA_PASSWORD: smct
+    networks:
+      - laravel-app   
+    
   nginx:
     image: nginx:alpine
     container_name: nginx-server
