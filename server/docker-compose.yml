@@ -12,53 +12,29 @@ services:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
+      - mysql_data:/var/lib/mysql
     networks:
       - laravel-app
     environment:
       DB_CONNECTION: mysql
-      DB_HOST: db  # Ensure Laravel connects to the db container
+      DB_HOST:  185.199.52.40
       DB_PORT: 3306
       DB_DATABASE: backend
-      DB_USERNAME: root
-      DB_PASSWORD: ${DB_PASSWORD}  # Ensure this matches your DB password
-  
-  db:
-    image: mysql:8.0
-    container_name: mysql-server
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: backend
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    ports:
-      - "3306:3306" 
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - laravel-app
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "mysql"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
+      DB_USERNAME: smct
+      DB_PASSWORD: smct  # Ensure this matches your DB password
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
-    restart: unless-stopped
     environment:
-      PMA_HOST: db  # Name of the MySQL container
+      PMA_HOST: mysql  # MySQL container name or IP address
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}  # Use the same password as in the db container
+      MYSQL_ROOT_PASSWORD: smct
     ports:
-      - "8080:80"  # Expose phpMyAdmin on port 8080
+      - "8080:80"  # Access phpMyAdmin via localhost:8080
     networks:
       - laravel-app
-      
+  
   nginx:
     image: nginx:alpine
     container_name: nginx-server
