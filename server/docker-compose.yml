@@ -27,7 +27,7 @@ services:
     container_name: nginx-server
     restart: unless-stopped
     ports:
-      - 5005:80  # Map Nginx port (adjust as needed)
+      - 5005:5005 # Map Nginx port (adjust as needed)
     volumes:
       - ./:/var/www  # Mount your app's code into the container
       - ./docker-compose/nginx/default.conf:/etc/nginx/conf.d/default.conf  # Ensure your Nginx config path is correct
