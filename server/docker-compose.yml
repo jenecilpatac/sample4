@@ -16,7 +16,7 @@ services:
       - laravel-app
     environment:
       DB_CONNECTION: mysql
-      DB_HOST: host.docker.internal  # Replace with your host's IP if necessary
+      DB_HOST: 185.199.52.40  # Replace with your host's IP if necessary
       DB_PORT: 3306
       DB_DATABASE: backend
       DB_USERNAME: smct
